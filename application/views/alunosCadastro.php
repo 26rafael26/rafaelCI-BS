@@ -2,31 +2,57 @@
     <div class= "row">
         <div class= "col-lg-3 col-md-3 col-3"></div>
         <div class= "col-lg-6 col-md-6 col-6">
+            <h1 class="jumbotron-heading">Cadastro de Alunos</h1><p></p>
+            <?php echo form_open('alunos/inserir'); ?>
+            <div class="form-group">
+                <input type="text" name="nome"  class="form-control form-control-lg" placeholder="Nome" />
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="rg" class="form-control form-control-lg" placeholder="RG" />
+            </div> 
+
+            <div class="form-group">
+                <input type="text" name="idade" class="form-control form-control-lg" placeholder="Idade" />
+            </div> 
+
+            <div class="form-group">
+                <input type="text" name="endereco" class="form-control form-control-lg" placeholder="Endereço" />
+            </div> 
+
+            <div class="form-group">
+                <input type="text" name="turma'" class="form-control form-control-lg" placeholder="Turma" />
 
 
-            <form method="post" style="text-align: center;" class=
-                  "form-group">
-                <form method="post" class="form-group">
-                    <div class="form-group">
-                        <input name = "emp_id" class="form-control"  type = "text" id = "emp_id" size="3" maxlength="2" placeholder="    ID">
-                    </div>
-                    <input name = "delete" type = "submit" id = "delete" value = "Deletar" class="btn btn-danger"> <p>
+            </div> 
+           
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sexo" id="exampleRadios2" value="Masculino">
+                <label class="form-check-label" for="exampleRadios2">
+                    Masculino
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sexo" id="exampleRadios3" value="Feminino" >
+                <label class="form-check-label" for="exampleRadios3">
+                    Feminino
+                </label>
+            </div>
+           
 
-                    <div class="form-group">
-                        <input name="up_id" class="form-control" type="text" id = "up_id" size="2" maxlength="2" placeholder="    ID">
-                    </div>
-                    <input name = "update" type = "submit" id = "update" value = "Atualizar" class="btn btn-success"> <br><br><br>
+            <input name = "salvar" type = "submit" id = "salvar" value = "salvar" 
+                   class="btn btn-success">
+
+            <input type="reset" class="btn btn-danger"/>
+
+            <a class="btn btn-primary" href="<?php base_url(); ?>home"
+               id="cancelar">Cancelar</a>
 
 
-                    <div class="form-group">
-                        <input type="text" name="nome" placeholder="Digite o nome ..." class="form-control">
-                    </div>
-                    <input name="pesquisar" type="submit" value="Pesquisar" class="btn btn-primary"><br><br>
 
-                    <input name="todos" type="submit" value="Listar Todos" class="btn btn-warning"><br><br>
 
-                </form>
-			</div>
-			<div class= "col-lg-6 col-md-6 col-6"></div>
-	    </div>
+            <?php form_close(); ?>
+        </div>
+        <div class= "col-lg-6 col-md-6 col-6"></div>
+    </div>
 
