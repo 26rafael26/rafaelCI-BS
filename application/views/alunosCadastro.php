@@ -4,23 +4,23 @@
         <h1 class="jumbotron-heading">Cadastro de Alunos</h1><p></p>
         <?php echo form_open('alunos/inserir'); ?>
         <div class="form-group">
-            <input type="text" name="nome"  class="form-control form-control-lg" placeholder="Nome" />
+            <input type="text"  name="nome"  class="form-control form-control-lg" placeholder="Nome" />
         </div>
 
         <div class="form-group">
-            <input type="text" name="rg" class="form-control form-control-lg" placeholder="RG" />
+            <input type="text"   name="rg" class="form-control form-control-lg" placeholder="RG" />
         </div> 
 
         <div class="form-group">
-            <input type="text" name="idade" class="form-control form-control-lg" placeholder="Idade" />
+            <input type="text"   name="idade" class="form-control form-control-lg" placeholder="Idade" />
         </div> 
 
         <div class="form-group">
-            <input type="text" name="endereco" class="form-control form-control-lg" placeholder="Endereço" />
+            <input type="text"   name="endereco" class="form-control form-control-lg" placeholder="Endereço" />
         </div> 
 
         <div class="form-group">
-            <input type="text" name="turma'" class="form-control form-control-lg" placeholder="Turma" />
+            <input type="text"   name="turma'" class="form-control form-control-lg" placeholder="Turma" />
 
 
         </div> 
@@ -65,6 +65,8 @@
                     <th scope="col">Idade</th>
                     <th scope="col">Endereço</th>
                     <th scope="col">Turma</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">Funções</th>
                 </tr>
             </thead>
             <tbody>
@@ -76,6 +78,12 @@
                         <td><?php echo $row->idade; ?></td>
                         <td><?php echo $row->endereco; ?></td>
                         <td><?php echo $row->turma; ?></td>
+                        <td><?php echo $row->sexo; ?></td>
+                        
+                        <td>
+                            <a class="glyphicon glyphicon-trash" href="<?php echo base_url().'alunos/excluir/'.$row->id;?>" ></a>
+                            <a class="glyphicon glyphicon-pencil" href="<?php echo base_url().'alunos/editar/'.$row->id;?>" ></a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

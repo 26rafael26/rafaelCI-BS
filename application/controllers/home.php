@@ -14,7 +14,7 @@ class Home extends CI_Controller {
         //$dados['acronico'] = "MPF";
         //$dados['completo'] = "Meu Projeto Framework";
         //$this->load->view('home', $dados);
-		$this->load->view('home');
+	$this->load->view('home');
         $this->load->view('template/footer');
     }
     
