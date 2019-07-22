@@ -6,6 +6,9 @@ class Professor extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        if(!$this->session->userdata('estou_logado')){
+            redirect('Login');
+        }
         $this->load->model('Professor_model', 'professor'); // 'professor' é um alias para 'Professor_model'
     }
 

@@ -2,36 +2,36 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Alunos_model extends CI_Model {
+class Usuario_model extends CI_Model {
 
     function __construct() {
         parent::__construct();
     }
 
     function inserir($p) {
-        return $this->db->insert('alunos', $p); //'alunos' é o nome da tabela Alunos_model
+        return $this->db->insert('usuario', $p); //'idusuario' é o nome da tabela é 'Usuario_model'
     }
 
     function deletar($id) {
-        $this->db->where('id', $id);
-        return $this->db->delete('alunos');
+        $this->db->where('idusuario', $id);
+        return $this->db->delete('usuario');
     }
 
     function editar($id) {
-        $this->db->where('id', $id);
-        $result = $this->db->get('alunos');
+        $this->db->where('idusuario', $id);
+        $result = $this->db->get('usuario');
         return $result->result();
     }
 
     function atualizar($data) {
-        $this->db->where('id', $data['id']);
+        $this->db->where('idusuario', $data['idusuario']);
         $this->db->set($data);
-        return $this->db->update('alunos');
+        return $this->db->update('usuario');
     }
 
     function listar() {
         $this->db->select('*');
-        $this->db->from('alunos');
+        $this->db->from('usuario');
         $query = $this->db->get();
         return $query->result();
     }

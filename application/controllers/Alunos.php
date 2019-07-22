@@ -6,6 +6,9 @@ class Alunos extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        if(!$this->session->userdata('estou_logado')){
+            redirect('Login');
+        }
         $this->load->model('Alunos_model', 'alunos'); // 'alunos' é um alias para 'Alunos_model'
     }
 
@@ -25,7 +28,7 @@ class Alunos extends CI_Controller {
         $dados['idade'] = $this->input->post('idade');
         $dados['sexo'] = mb_convert_case($this->input->post('sexo'), MB_CASE_UPPER);
         
-        $result=$this->alunos->inserir($dados);
+        $result=$this->usuario->inserir($dados);
         
         if($result==true){
             $this->session->set_flashdata('true', 'msg');
@@ -38,7 +41,7 @@ class Alunos extends CI_Controller {
     }
 
     function excluir($id) {
-        $result=$this->alunos->deletar($id);
+        $result=$this->usuario->deletar($id);
         if($result==true){
             $this->session->set_flashdata('excluirSucesso', 'msg');
             redirect('alunos');
@@ -50,7 +53,7 @@ class Alunos extends CI_Controller {
     }
 
     function editar($id) {
-        $data['alunosEditar'] = $this->alunos->editar($id);
+        $data['alunosEditar'] = $this->usuario->editar($id);
         $this->load->view('template/header');
         $this->load->view('alunosEditar', $data);
         $this->load->view('template/footer');
@@ -65,7 +68,7 @@ class Alunos extends CI_Controller {
         $dados['idade'] = $this->input->post('idade');
         $dados['sexo'] = mb_convert_case($this->input->post('sexo'), MB_CASE_UPPER);
         
-        $result=$this->alunos->atualizar($dados);
+        $result=$this->usuario->atualizar($dados);
         if($result==true){
             $this->session->set_flashdata('trueUpdate', 'msg');
             redirect('alunos');
